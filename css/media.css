@@ -1,0 +1,26 @@
+@media screen and (max-width:770px){
+    #demo-8{
+        font-size: 20px !important;
+        padding-left: 15px !important;
+        background-color: purple;
+     
+    }
+    #demo-8 .col-md-8{
+        margin-left: 55px !important;
+    }
+    #demo-8 .col-md-4 h2{
+        margin-left: 55px !important;
+    }
+    #demo-8 .col-md-4 img{
+        margin-left: 20px !important;
+    }
+    .contact{
+        margin-left: 40px;
+    }
+    #nsearch ,#lsearch{
+        margin-left: 70px;
+        width: 70%;
+    }
+
+    
+}
