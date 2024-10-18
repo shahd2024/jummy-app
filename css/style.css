@@ -219,5 +219,8 @@ color: white !important;
     align-items: center;
     background-color: black;
     z-index: 99999;
+  } 
+  #demo {
+    overflow-x: hidden !important;
   }
 

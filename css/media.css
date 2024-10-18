@@ -1,6 +1,6 @@
 @media screen and (max-width:770px){
     #demo-8{
-        font-size: 20px !important;
+        font-size: 14px !important;
         padding-left: 15px !important;
         background-color: purple;
      
@@ -20,6 +20,9 @@
     #nsearch ,#lsearch{
         margin-left: 70px;
         width: 70%;
+    }
+    #demo-2{
+        margin-left: 50px;
     }
 
     
