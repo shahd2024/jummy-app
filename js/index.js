@@ -1,20 +1,12 @@
 /// <reference types="../@types/jquery" />
 
-    // $('.loader').fadeOut(2000,function(){
-    //     $('.loading').slideUp(1000,function(){
-    //         $('body').css('overflow','auto')
-    //         $('.loading').remove();
-    //     })
-    // })
+   
     $(window).on('load',()=>{
          $('.loader').fadeOut(2000,function(){
         $('.loading').slideUp(1000,function(){
             $('body').css('overflow','auto')
             $('.loading').remove();
-            // $('.open').toggleClass('d-block','d-none');
-            // $('.close').toggleClass('d-none','d-block');
-            // $('.open').toggleClass('d-block d-none');
-            // $('.close').toggleClass('d-none d-block');
+          
 
         })
     })
@@ -30,11 +22,12 @@ $('.nav-icons .close-icon i').on('click',function(){
  
     
 })
+// -----------------------animation------------------------
 let specificMeal;
 async function allMeals(){
     let myHttp=await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=`);
        let res=await myHttp.json();
-     console.log(res.meals);
+     
      let All=res.meals;
      let cartona=''
       for(let i=0; i<All.length; i++){
@@ -54,6 +47,7 @@ async function allMeals(){
         specificMeal[x].addEventListener('click',function(){
         let title= specificMeal[x].getAttribute("id");
         console.log(title);
+      
         specific(title);
         
         })
@@ -61,7 +55,7 @@ async function allMeals(){
       
     
     
-         console.log('api');
+        
 }
 
 allMeals();
@@ -70,14 +64,15 @@ async function specific(data){
     let res=await myHttp.json();
     console.log(res.meals[0]);
     let all=res.meals[0];
-    console.log(all.strIngredient1);
+  
     
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.replace('d-block','d-none');
-    document.querySelector('.meal-bycateg').classList.add('d-none');
+    document.querySelector('.meal-bycateg').classList.replace('d-block','d-none');
     document.querySelector('.count-meal').classList.replace('d-block','d-none');
     document.querySelector('.ingredient-smeal').classList.replace('d-block','d-none');
-    document.querySelector('.contact').classList.add('d-none');
+    document.querySelector('.contact').classList.replace('d-block','d-none');
+    document.querySelector('.category-section').classList.replace('d-block','d-none');
     document.querySelector('.sp').classList.replace('d-none','d-block');
     displaySpecific(all);
     
@@ -231,9 +226,25 @@ document.getElementById("demo-8").innerHTML = cartona;
     document.querySelector('.ingredient-smeal').classList.add('d-none');
     document.querySelector('.contact').classList.replace('d-block','d-none');
     document.querySelector('.sp').classList.add('d-none');
+    console.log('react');
+    
  })
 
     document.getElementById('category').addEventListener('click',function(){
+        $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
+        document.querySelector('.home').classList.add('d-none');
+        document.querySelector('.search-section').classList.replace('d-block','d-none');
+        document.querySelector('.category-section').classList.replace('d-none','d-block');
+        document.querySelector('.meal-bycateg').classList.add('d-none');
+        document.querySelector('.meals-area').classList.replace('d-block','d-none');
+        document.querySelector('.count-meal').classList.replace('d-block','d-none');
+        document.querySelector('.all-ingredients').classList.add('d-none');
+        document.querySelector('.ingredient-smeal').classList.add('d-none');
+        document.querySelector('.contact').classList.replace('d-block','d-none');
+        document.querySelector('.sp').classList.replace('d-block','d-none');
+        console.log('vue');
+        
+       
         allCategories();
     })
     async function allCategories(){
@@ -243,7 +254,7 @@ document.getElementById("demo-8").innerHTML = cartona;
     let All=rest.categories
     let cartona=''
      for(let i=0; i<All.length; i++){
-     cartona+=`  <div class="col-md-3 m-cate">
+     cartona+=`  <div class="col-md-3 m-cate ">
               <div class="meal position-relative py-3">
  <img class="w-100" src="${All[i].strCategoryThumb}" alt="">
  <div class="meal-layer   d-flex align-items-center flex-column text-center pt-2 ">
@@ -254,6 +265,7 @@ document.getElementById("demo-8").innerHTML = cartona;
                     </div>`
      }
      document.getElementById('demo-2').innerHTML=cartona;
+     
      let categList=document.querySelectorAll('.m-cate');
      for(let x=0;x<categList.length;x++){
         categList[x].addEventListener('click',()=>{
@@ -261,7 +273,9 @@ document.getElementById("demo-8").innerHTML = cartona;
        let categoryTitle = categList[x].querySelector('h3').innerText;
        document.querySelector('.category-section').classList.replace('d-block','d-none');
         document.querySelector('.meal-bycateg').classList.replace('d-none','d-block');
+       
        mealCateg(categoryTitle);
+          
         })
      }
  }
@@ -297,19 +311,24 @@ document.getElementById("demo-8").innerHTML = cartona;
  }
 
 
-document.getElementById('category').addEventListener('click',function(){
-    $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
-    document.querySelector('.home').classList.add('d-none');
-    document.querySelector('.search-section').classList.add('d-none');
-    document.querySelector('.category-section').classList.replace('d-none','d-block');
-    document.querySelector('.meal-bycateg').classList.add('d-none');
-    document.querySelector('.meals-area').classList.replace('d-block','d-none');
-    document.querySelector('.count-meal').classList.replace('d-block','d-none');
-    document.querySelector('.all-ingredients').classList.add('d-none');
-    document.querySelector('.contact').classList.replace('d-block','d-none');
-    document.querySelector('.sp').classList.replace('d-block','d-none');
+// document.getElementById('category').addEventListener('click',function(){
+//     // $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
+//     document.querySelector('.sp').classList.replace('d-block','d-none');
+//     document.querySelector('.home').classList.add('d-none');
+//     document.querySelector('.search-section').classList.add('d-none');
+//     document.querySelector('.category-section').classList.replace('d-none','d-block');
+//     document.querySelector('.meal-bycateg').classList.add('d-none');
+//     document.querySelector('.meals-area').classList.replace('d-block','d-none');
+//     document.querySelector('.count-meal').classList.replace('d-block','d-none');
+//     document.querySelector('.all-ingredients').classList.add('d-none');
+//     document.querySelector('.contact').classList.replace('d-block','d-none');
+//     document.querySelector('.sp').classList.add('d-none');
+//     // document.querySelector('.sp').classList.add('d-none');
+//     console.log('offfff');
+    
 
-})
+
+// })
 document.querySelector('.meal-bycateg').addEventListener('click',function(){
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.add('d-none');
@@ -319,7 +338,7 @@ document.querySelector('.meal-bycateg').addEventListener('click',function(){
     // document.querySelector('.meal-bycateg').classList.replace('d-none','d-block');
 
 })
-document.getElementById('area').addEventListener('click',function(){
+document.getElementById('area').addEventListener('click',()=>{
     $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.add('d-none');
@@ -328,7 +347,9 @@ document.getElementById('area').addEventListener('click',function(){
     document.querySelector('.meals-area').classList.replace('d-none','d-block');
     document.querySelector('.all-ingredients').classList.add('d-none');
     document.querySelector('.contact').classList.replace('d-block','d-none');
-    document.querySelector('.sp').classList.replace('d-block','d-none');
+    document.querySelector('.sp').classList.add('d-none');
+    console.log('llll');
+    
     getAreas();
 })
 async function getAreas(){
@@ -581,12 +602,8 @@ document.getElementById('contact').addEventListener('click',()=>{
     document.querySelector('.ingredient-smeal').classList.add('d-none');
     document.querySelector('.contact').classList.replace('d-none','d-block');
     document.querySelector('.sp').classList.add('d-none');
+    
 
 })
-   // <li class="alert alert-info p-1 m-2">${all.strIngredient1}</li>
-                            // <li class=" alert alert-info p-1 m-2">${all.strIngredient2}</li>
-                            // <li class=" alert alert-info p-1 m-2">${all.strIngredient3}</li>
-                            // <li class="alert alert-info p-1 m-2">${all.strIngredient4}</li>
-                            // <li class=" alert alert-info p-1 m-2">${all.strIngredient5}</li>
-                            // <li class="alert alert-info p-1 m-2">${all.strIngredient6}</li>
-                            // <li class=" alert alert-info p-1 m-2 ">${all.strIngredient7}</li>
+
+                          
