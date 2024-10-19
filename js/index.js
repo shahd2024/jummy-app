@@ -311,31 +311,14 @@ document.getElementById("demo-8").innerHTML = cartona;
  }
 
 
-// document.getElementById('category').addEventListener('click',function(){
-//     // $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
-//     document.querySelector('.sp').classList.replace('d-block','d-none');
-//     document.querySelector('.home').classList.add('d-none');
-//     document.querySelector('.search-section').classList.add('d-none');
-//     document.querySelector('.category-section').classList.replace('d-none','d-block');
-//     document.querySelector('.meal-bycateg').classList.add('d-none');
-//     document.querySelector('.meals-area').classList.replace('d-block','d-none');
-//     document.querySelector('.count-meal').classList.replace('d-block','d-none');
-//     document.querySelector('.all-ingredients').classList.add('d-none');
-//     document.querySelector('.contact').classList.replace('d-block','d-none');
-//     document.querySelector('.sp').classList.add('d-none');
-//     // document.querySelector('.sp').classList.add('d-none');
-//     console.log('offfff');
-    
 
-
-// })
 document.querySelector('.meal-bycateg').addEventListener('click',function(){
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.add('d-none');
     document.querySelector('.category-section').classList.replace('d-block','d-none');
     document.querySelector('.meals-area').classList.replace('d-block','d-none');
     document.querySelector('.count-meal').classList.replace('d-block','d-none');
-    // document.querySelector('.meal-bycateg').classList.replace('d-none','d-block');
+    document.querySelector('.meal-bycateg').classList.replace('d-none','d-block');
 
 })
 document.getElementById('area').addEventListener('click',()=>{
@@ -491,6 +474,7 @@ async function allIngredients(){
 
 
 }
+// ------------conect------------------
 
 
 let names = document.getElementById('names');
