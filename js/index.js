@@ -5,7 +5,7 @@
          $('.loader').fadeOut(2000,function(){
         $('.loading').slideUp(1000,function(){
             $('body').css('overflow','auto')
-            $('.loading').remove();
+            // $('.loading').remove();
           
 
         })
@@ -85,8 +85,9 @@ async function displaySpecific(all) {
     let count='';
     for (let index =1;index<=20;index++) {
         let ingredient = all[`strIngredient${index}`];
-        if (ingredient) {  
-            count += `<li class="alert alert-info p-1 m-2">${ingredient}</li>`;
+        let qua=all[`strMeasure${index}`]
+        if (ingredient &&qua) {  
+            count += `<li class="alert alert-info p-1 m-2">${qua}   ${ingredient}</li>`;
           }
       
         
@@ -181,7 +182,8 @@ document.getElementById("demo-8").innerHTML = cartona;
  lsearch.addEventListener('input',function(){
     let mealLetter=lsearch.value;
     console.log(lsearch.value);
-     getMeal(mealLetter);
+    //  getMeal(mealLetter);
+    getMealLetter(mealLetter)
     
  })
  async function getMealLetter(ele){
@@ -189,9 +191,17 @@ document.getElementById("demo-8").innerHTML = cartona;
     let res=await myHttp.json();
     let All=res.meals;
     console.log(All);
+   
     
     let cartona=''
      for(let i=0; i<All.length; i++){
+        let sure=All[i].strMeal;
+        // console.log(sure[0]);
+        
+        // let reo=sure.split("")
+        // if(sure[0]==ele){
+            console.log(sure.charAt(0));
+            
      cartona+=` <div class="col-md-3 specific" id="${All[i].idMeal}">
                   <div class="meal position-relative">
                    <img class="w-100" src="${All[i].strMealThumb}" alt="">
@@ -202,6 +212,7 @@ document.getElementById("demo-8").innerHTML = cartona;
                   </div>
                </div>`
      }
+    // }
      document.getElementById('demo-1').innerHTML=cartona;
      specificMeal=document.querySelectorAll('.specific');
       for(let x=0;x<specificMeal.length;x++){
@@ -214,7 +225,19 @@ document.getElementById("demo-8").innerHTML = cartona;
  }
 }
  document.getElementById('search').addEventListener('click',function(){
-   
+    $('.loader').fadeIn(0); 
+    $('.loading').slideDown(0);
+ 
+    $('.loader').fadeOut(2000,function(){
+        $('.loading').slideUp(1000,function(){
+            $('body').css('overflow','auto')
+            // $('.loading').remove();
+          
+
+        })
+    })
+    document.querySelector('.open').classList.replace('d-none','d-block');
+    document.querySelector('.close').classList.replace('d-block','d-none');
     $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.replace('d-none','d-block');
@@ -231,6 +254,18 @@ document.getElementById("demo-8").innerHTML = cartona;
  })
 
     document.getElementById('category').addEventListener('click',function(){
+        $('.loader').fadeIn(0); 
+        $('.loading').slideDown(0);
+        $('.loader').fadeOut(2000,function(){
+            $('.loading').slideUp(1000,function(){
+                $('body').css('overflow','auto')
+               
+              
+    
+            })
+        })
+        document.querySelector('.open').classList.replace('d-none','d-block');
+        document.querySelector('.close').classList.replace('d-block','d-none');
         $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
         document.querySelector('.home').classList.add('d-none');
         document.querySelector('.search-section').classList.replace('d-block','d-none');
@@ -322,6 +357,18 @@ document.querySelector('.meal-bycateg').addEventListener('click',function(){
 
 })
 document.getElementById('area').addEventListener('click',()=>{
+    $('.loader').fadeIn(0); 
+    $('.loading').slideDown(0);
+    $('.loader').fadeOut(2000,function(){
+        $('.loading').slideUp(1000,function(){
+            $('body').css('overflow','auto')
+            // $('.loading').remove();
+          
+
+        })
+    })
+    document.querySelector('.open').classList.replace('d-none','d-block');
+    document.querySelector('.close').classList.replace('d-block','d-none');
     $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.add('d-none');
@@ -397,6 +444,18 @@ async function getArea(tel){
 
 }
 document.getElementById('ingredients').addEventListener('click',()=>{
+    $('.loader').fadeIn(0); 
+    $('.loading').slideDown(0);
+    $('.loader').fadeOut(2000,function(){
+        $('.loading').slideUp(1000,function(){
+            $('body').css('overflow','auto')
+            // $('.loading').remove();
+          
+
+        })
+    })
+    document.querySelector('.open').classList.replace('d-none','d-block');
+    document.querySelector('.close').classList.replace('d-block','d-none');
     $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.add('d-none');
@@ -421,12 +480,15 @@ async function allIngredients(){
         
         
         if (description.length > maxLength) {
-            description = description.substring(0, maxLength) + '...';
+            description = description.substring(0, maxLength) ;
+            // description=description.splice(maxLength-1,2)
+            console.log(description);
+            
         }
     cartona+=`<div class="col-md-3 text-center inget">
                         <i class="fa-solid fa-drumstick-bite"></i>
                         <h3>${All[i].strIngredient}</h3>
-                        <p>${description}}</p>
+                        <p>${description}</p>
                     </div>`
     }
     document.getElementById('demo-6').innerHTML=cartona;
@@ -575,6 +637,18 @@ function add() {
     }
 }
 document.getElementById('contact').addEventListener('click',()=>{
+    $('.loader').fadeIn(0); 
+    $('.loading').slideDown(0);
+    $('.loader').fadeOut(2000,function(){
+        $('.loading').slideUp(1000,function(){
+            $('body').css('overflow','auto')
+            // $('.loading').remove();
+          
+
+        })
+    })
+    document.querySelector('.open').classList.replace('d-none','d-block');
+    document.querySelector('.close').classList.replace('d-block','d-none');
     $('.naves .nav-contentes').animate({width:'toggle' ,margin:'toggle'},1000 );
     document.querySelector('.home').classList.add('d-none');
     document.querySelector('.search-section').classList.replace('d-block','d-none');
@@ -588,6 +662,20 @@ document.getElementById('contact').addEventListener('click',()=>{
     document.querySelector('.sp').classList.add('d-none');
     
 
+})
+document.querySelector('.check').addEventListener('change',function(){
+    if(this.checked){
+        console.log('check');
+        document.querySelector('.open').classList.replace('d-block','d-none');
+        document.querySelector('.close').classList.replace('d-none','d-block');
+        
+    }
+    else{
+        console.log('unchecked');
+        document.querySelector('.open').classList.replace('d-none','d-block');
+        document.querySelector('.close').classList.replace('d-block','d-none');
+        
+    }
 })
 
                           

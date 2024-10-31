@@ -16,7 +16,7 @@ body{
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0px;
     bottom: 0;
@@ -40,6 +40,7 @@ body{
    
   
    flex-direction: column;
+   /* justify-content: space-around; */
    justify-content: space-between;
    margin-left: 0px;
    margin-top: 15px;
@@ -83,7 +84,8 @@ i{
     color: white;
     margin-bottom: 10px;
     margin-left: 20px;
-    transform: translateY(400%);
+   
+  
     
 }
 .nav-linkes p{
@@ -103,7 +105,7 @@ i{
 .close{
     display: none;
 }
-body:has(.mode input:checked) .close{
+/* body:has(.mode input:checked) .close{
     display: block;
     color: var(--bg-primary);
     cursor: pointer;
@@ -112,7 +114,7 @@ body:has(.mode input:checked) .close{
 body:has(.mode input:checked) .open{
     display:none ;
     
-}
+} */
 .meal img{
     border-radius: 10px !important;
 }
